@@ -2,7 +2,6 @@ CREATE DATABASE IF NOT EXISTS animal_shelter_managementsystem;
 
 USE animal_shelter_managementsystem;
 
--- Table for adopter information
 CREATE TABLE adopter_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
@@ -11,7 +10,6 @@ CREATE TABLE adopter_info (
     contact_number VARCHAR(20)
 );
 
--- Table for animal information
 CREATE TABLE animal_info (
     id INT AUTO_INCREMENT PRIMARY KEY,
     animal_name VARCHAR(100) NOT NULL,
