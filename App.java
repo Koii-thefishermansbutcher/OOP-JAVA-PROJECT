@@ -1,50 +1,61 @@
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        Scanner globalScan = new Scanner(System.in);
-        Animal shelter = new Animal();
+    public static void main(String[] args) {
+        Scanner globalScan = AnimalAction.scan;
         boolean running = true;
 
         while (running) {
             System.out.println("\n=============================================");
-            System.out.println("   ANIMAL SHELTER MANAGEMENT SYSTEM v2.5     ");
+            System.out.println("   ANIMAL SHELTER MANAGEMENT SYSTEM v2.6     ");
             System.out.println("=============================================");
             System.out.println(" [1] Register a New Animal");
-            System.out.println(" [2] View Shelter Database Logs");
+            System.out.println(" [2] View Shelter Directory");
             System.out.println(" [3] Process an Animal Adoption");
-            System.out.println(" [4] Update Existing Animal Profile"); 
-            System.out.println(" [5] Shut Down System");
-            System.out.print("Please enter a selection option (1-5): ");
-            
+            System.out.println(" [4] Update Animal Profile");
+            System.out.println(" [5] Search Animals");
+            System.out.println(" [6] View Adoption History");
+            System.out.println(" [7] View Shelter Statistics");
+            System.out.println(" [8] Shut Down System");
+            System.out.print("Please enter an option (1-8): ");
+
             if (!globalScan.hasNextInt()) {
-                System.out.println("❌ Invalid option. Please enter a number between 1 and 5.");
-                globalScan.nextLine(); 
+                System.out.println("Invalid option. Please enter a whole number.");
+                globalScan.nextLine();
                 continue;
             }
-            
+
             int menuChoice = globalScan.nextInt();
-            globalScan.nextLine(); 
+            globalScan.nextLine();
 
             switch (menuChoice) {
                 case 1:
-                    shelter.Add_Animal();
+                    new Register().run();
                     break;
                 case 2:
-                    shelter.View_Shelter_Directory();
+                    new View().run();
                     break;
                 case 3:
-                    shelter.Adopt_Animal();
+                    new Adoption().run();
                     break;
                 case 4:
-                    shelter.Update_Animal_Profile(); 
+                    new Update().run();
                     break;
                 case 5:
-                    System.out.println("Safely flushing connections... System closed. Goodbye!");
+                    new SearchAnimals().run();
+                    break;
+                case 6:
+                    new AdoptionHistory().run();
+                    break;
+                case 7:
+                    new ShelterStatistics().run();
+                    break;
+                case 8:
+                    System.out.println("System closed. Goodbye!");
                     running = false;
                     break;
                 default:
-                    System.out.println("❌ Invalid selection option code. Try again.");
+                    System.out.println("Invalid option. Please choose from 1 to 8.");
             }
         }
         globalScan.close();

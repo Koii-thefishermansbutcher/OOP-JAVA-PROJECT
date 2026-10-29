@@ -3,12 +3,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
+    private String url = "jdbc:mysql://localhost:3306/animal_shelter_managementsystem";
+    private String user = "root";
+    private String password = "";
 
-    String url = "jdbc:mysql://localhost:3306/animal_shelter_managementsystem";
-    String user = "root";
-    String password = "";
-
-    public Connection getConnection() throws SQLException {
+    protected Connection getConnection() throws SQLException {
         return DriverManager.getConnection(url, user, password);
     }
 }
