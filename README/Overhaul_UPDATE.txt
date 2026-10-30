@@ -1,0 +1,32 @@
+ANIMAL SHELTER MANAGEMENT SYSTEM v2.6
+
+FILES
+- App.java: main menu
+- Database.java: MySQL connection
+- AnimalAction.java: shared input validation and confirmation methods; abstract parent class
+- Register.java: register an animal and record accepted_date
+- View.java: view animal records by category
+- Adoption.java: adopt healthy, available animals and record adopted_date
+- Update.java: update health status or weight
+- SearchAnimals.java: search by ID or name
+- AdoptionHistory.java: view adopted animals and adopter details
+- ShelterStatistics.java: view shelter totals
+
+DATABASE SETUP
+1. Open MySQL Workbench and select animal_shelter_managementsystem.
+2. If this is an existing database, run animal_shelter_dates_update.sql once if you have not added the date columns yet.
+3. If this is a new database, use your full table-creation SQL with accepted_date DATE NOT NULL and adopted_date DATE NULL included in animal_info.
+4. Check Database.java for the correct MySQL URL, username, and password.
+5. Keep all Java files in the same project folder and keep your MySQL Connector/J library linked to the project.
+6. Run App.java.
+
+NEW FEATURES
+- Search animals by ID or part of a name.
+- Adoption history shows the adopted animal, adoption date, adopter, and contact number.
+- Shelter statistics show total, available, adopted, healthy, and animals needing health attention.
+- Empty text fields are rejected; negative numbers are rejected; weight cannot be negative.
+- Registration, adoption, and profile updates ask for confirmation before saving changes.
+- Adoption remains limited to animals marked Healthy and Available.
+
+NOTE
+Existing animal records need the date-column migration before this version can read accepted_date and adopted_date. For existing animals, the migration date is a fallback for accepted_date if their true arrival dates were never stored.

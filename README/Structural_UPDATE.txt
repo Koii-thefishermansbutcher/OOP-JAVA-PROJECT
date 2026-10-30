@@ -1,0 +1,28 @@
+ANIMAL SHELTER MANAGEMENT SYSTEM - UPDATED VERSION
+
+FILES
+- App.java
+- Database.java
+- AnimalAction.java
+- Register.java
+- View.java
+- Adoption.java
+- Update.java
+
+BEFORE RUNNING
+1. Open animal_shelter_dates_update.sql in MySQL Workbench.
+2. Run the SQL once against the animal_shelter_managementsystem database.
+3. Make sure the MySQL JDBC driver is added to your Java project, as in your current setup.
+4. Run App.java.
+
+NEW BEHAVIOR
+- accepted_date is set to today's date when a new animal is registered.
+- adopted_date is set to today's date when an adoption succeeds.
+- The adoption menu lets you choose Cats, Dogs, Other Animals, or All Animals.
+- Only animals with health_status = Healthy and adoption_status = Available are listed for adoption.
+- The selected animal is checked again before the adoption is saved.
+- Adoption status can no longer be changed manually in Update; use the adoption process instead.
+- The shelter directory now includes Accepted and Adopted date columns.
+
+NOTE ABOUT OLD RECORDS
+The SQL fills accepted_date for existing records with the day you run the migration because their actual historical acceptance dates are not stored. Existing adopted records keep adopted_date as NULL because their real adoption dates are unknown.

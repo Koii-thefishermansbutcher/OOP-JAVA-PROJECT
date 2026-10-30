@@ -1,0 +1,44 @@
+ANIMAL SHELTER MANAGEMENT SYSTEM v2.7
+
+FILES
+- App.java: staff login flow and main desk menu
+- Login.java: checks staff username and password in MySQL
+- Database.java: MySQL connection
+- AnimalAction.java: shared input validation and confirmation methods; abstract parent class
+- Register.java: register an animal and record accepted_date
+- View.java: view animal records by category
+- Adoption.java: adopt healthy, available animals and record adopted_date
+- Update.java: update health status or weight
+- SearchAnimals.java: search by ID or part of a name
+- AdoptionHistory.java: view adopted animals and adopter details
+- ShelterStatistics.java: view shelter totals
+- staff_login_setup.sql: creates the staff account table and starter admin account
+
+LOGIN SETUP
+1. Start MySQL in XAMPP.
+2. Open phpMyAdmin or MySQL Workbench.
+3. Select/import/run staff_login_setup.sql.
+4. Make sure Database.java has the correct database name, username, and password.
+5. Keep all Java files in the same project folder and link MySQL Connector/J.
+6. Run App.java.
+
+STARTER LOGIN
+Username: admin
+Password: shelter123
+
+CHANGE THE STARTER PASSWORD
+The starter account is for classroom testing. Before using the system for real records, replace it with a private staff password and update its SHA-256 value in MySQL. Do not share the starter password.
+
+HOW IT WORKS
+- The program shows the staff login screen first.
+- Correct credentials open the main desk menu.
+- Incorrect credentials are rejected.
+- Option 8 logs out and returns to the login screen.
+- Option 9 shuts down the program.
+- Logging out does not delete animal or adopter records.
+
+EXISTING DATABASE NOTE
+This login addition does not change the animal_info or adopter_info tables. If this is an existing database, keep using the date-column migration instructions from the earlier version when needed.
+
+SECURITY NOTE
+The password is not stored as plain text. This classroom version uses MySQL SHA2 for a simple demonstration. For a real production system, use a password-hashing method designed to resist password guessing, such as Argon2id or bcrypt, and add staff account management.
